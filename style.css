@@ -120,3 +120,140 @@ header {
     opacity: 1;
     transform: translateX(0); 
 }
+
+
+.quiz-section {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 80%;
+    background-color: #FFC0CB; 
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 2em;
+    border: 2px solid #FFC0CB; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.quiz-section h2 {
+    font-size: 2.5em;
+    color: #FFC0CB;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#question {
+    font-size: 1.8em;
+    color: #FFC0CB; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.quiz-container {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #FFF8DC
+;
+}
+
+.quiz-container h2 {
+    font-size: 2.5em;
+    color: #FFC0CB;
+    margin-bottom: 20px;
+}
+
+.answer-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.answer {
+    background: #DB7093;
+    color: #FFC0CB;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.answer:hover {
+    transform: translateY(-5px);
+    background-color: beige;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+#quiz-title {
+    font-size: 4em;
+    color: #FFC0CB;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1.5s ease forwards;
+    opacity: 0;
+    margin-top: 2em;
+}
+
+.answer-button {
+    background-color: #DB7093;
+    color: #FFF; 
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: auto; 
+}
+
+
+.answer-button:hover {
+    transform: translateY(-3px);
+    background-color: #FFF8DC; 
+    color: #DB7093; 
+
+
+.recommendation-card {
+    background-color: #FFC0CB;
+    color: #DB7093;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #DB7093;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.3em;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp 
+{
+
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
