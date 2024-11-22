@@ -32,6 +32,22 @@ function scrollAnimation() {
     });
 }
 
+function animateImagesOnScroll() {
+    const images = document.querySelectorAll('.animated-image');
+    images.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+        if (isVisible) {
+            img.classList.add('visible'); // Добавляем класс для анимации
+        } else {
+            img.classList.remove('visible'); // Убираем класс, если невидимо
+        }
+    });
+}
+
+window.addEventListener('scroll', animateImagesOnScroll);
+animateImagesOnScroll(); // Запускаем при загрузке страницы
+
 window.addEventListener('scroll', scrollAnimation);
 
 scrollAnimation();
