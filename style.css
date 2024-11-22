@@ -43,7 +43,7 @@ header {
 
 .navigation a:hover,
 .navigation a.active {
-    background: #DB7093;
+    background: #6F2C1E;
     color: #FFF8DC;
 }
 
@@ -53,12 +53,13 @@ header {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 #text {
     position: absolute;
     font-size: 5em;
-    color: #DB7093;
+    color: #D19B5D;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,20 +72,24 @@ header {
 }
 
 .sec {
-    position: relative;
-    background: #DB7093;
+    min-height: 100vh;
     padding: 100px;
+    background-color: #6F2C1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sec h2 {
     font-size: 3em;
-    color: #FFC0CB;
+    color: #FFF8DC;
     margin-bottom: 10px;
 }
 
 .sec p {
     font-size: 1em;
-    color: #FFC0CB;
+    color: #D19B5D;
     font-weight: 300;
 }
 
@@ -130,22 +135,22 @@ header {
     flex-direction: column;
     margin: 0 auto;
     max-width: 80%;
-    background-color: #FFC0CB; 
+    background-color: #6F2C1E; 
     border-radius: 12px;
     padding: 30px;
     margin-top: 2em;
-    border: 2px solid #FFC0CB; 
+    border: 2px solid #6F2C1E; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .quiz-section h2 {
     font-size: 2.5em;
-    color: #FFC0CB;
+    color: #FFF8DC;
     margin-bottom: 20px;
     text-align: center;
 }
 #question {
     font-size: 1.8em;
-    color: #FFC0CB; 
+    color: #FFF8DC; 
     margin-bottom: 20px;
     text-align: center;
 }
@@ -235,7 +240,7 @@ header {
     background-color: #FFF8DC; 
     color: #DB7093; 
 
-
+}
 .recommendation-card {
     background-color: #FFC0CB;
     color: #DB7093;
