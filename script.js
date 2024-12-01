@@ -59,7 +59,7 @@ let userFilters = [];
 // Вопросы и варианты ответов
 const questions = [
     {
-        question: "Mis žanri anime sulle meeldib?",
+        question: "Mis žanri animed sulle meeldivad?",
         answers: [
             { text: "Seinen", filter: ["seinen"] },
             { text: "Shoujo", filter: ["shoujo"] },
@@ -67,19 +67,19 @@ const questions = [
         ]
     },
     {
-        question: "Kas eelistate keerukat või lihtsat süžeed?",
+        question: "Kas teile meeldivad rohkem keerukad ja mitmekihilised lood või lihtsamad?",
         answers: [
-            { text: "Kompleksne, mitmekihiline", filter: ["complex"] },
-            { text: "Mõõdukalt raske", filter: ["medium_complex"] },
+            { text: "keeruline ja mitmekihiline", filter: ["complex"] },
+            { text: "Mõõdukalt keeruline, kuid arusaadav", filter: ["medium_complex"] },
             { text: "Lihtne ja meelelahutuslik", filter: ["simple"] }
         ]
     },
     {
-        question: "Milline tuju on sulle lähedasem?",
+        question: "Millised omadused kirjeldavad su lemmiktegelasu kõige paremini?",
         answers: [
-            { text: "Sünge, filosoofiline", filter: ["dark"] },
-            { text: "Hele, lõõgastav", filter: ["light"] },
-            { text: "Neutraalne, realistlik", filter: ["neutral"] }
+            { text: "Sünge", filter: ["dark"] },
+            { text: "Optimistlik", filter: ["light"] },
+            { text: "Apaatne, emotsionaalselt reserveeritud", filter: ["neutral"] }
         ]
     },
     {

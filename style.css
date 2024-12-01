@@ -86,6 +86,11 @@ header {
     color: #FFF8DC;
     margin-bottom: 10px;
 }
+.sec h3 {
+    font-size: 2em;
+    color: #FFF8DC;
+    margin-bottom: 10px;
+}
 
 .sec p {
     font-size: 1em;
@@ -175,7 +180,7 @@ header {
 
 .quiz-container h2 {
     font-size: 2.5em;
-    color: #FFC0CB;
+    color: #FFF8DC;
     margin-bottom: 20px;
 }
 
@@ -186,8 +191,8 @@ header {
 }
 
 .answer {
-    background: #DB7093;
-    color: #FFC0CB;
+    background: #D19B5D  ;
+    color: #ffe0c0;
     padding: 15px 30px;
     border-radius: 10px;
     font-size: 1.2em;
@@ -198,7 +203,7 @@ header {
 
 .answer:hover {
     transform: translateY(-5px);
-    background-color: beige;
+    background-color: #c87832 ;
 }
 
 .fade-in {
@@ -222,7 +227,7 @@ header {
 }
 
 .answer-button {
-    background-color: #DB7093;
+    background-color: #D19B5D;
     color: #FFF; 
     padding: 15px 25px;
     border-radius: 8px;
@@ -237,25 +242,30 @@ header {
 
 .answer-button:hover {
     transform: translateY(-3px);
-    background-color: #FFF8DC; 
-    color: #DB7093; 
+    background-color: #c9873b; 
+    color: #ecdfd7; 
 
 }
 .recommendation-card {
-    background-color: #FFC0CB;
-    color: #DB7093;
+    background-color: #D19B5D;
+    color: #D19B5D;
     padding: 15px 20px;
     border-radius: 10px;
-    border: 1px solid #DB7093;
+    border: 1px solid #D19B5D;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.3em;
     text-align: center;
-    width: 80%;
-    max-width: 400px;
+    width: 90%;
+    max-width: 600px;
     margin-bottom: 15px;
     animation: fadeInUp 0.5s ease forwards;
 }
-
+.img_anime {
+    width: 400px; 
+    height: 400px; 
+    border-radius: 10px; 
+    opacity: 1; 
+}
 .image-animation {
     display: flex;
     justify-content: space-around; /* Расположим картинки ближе к центру */
