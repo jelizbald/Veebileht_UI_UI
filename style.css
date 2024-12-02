@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #FFC0CB;
+    background:  #6F2C1E;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -43,7 +43,7 @@ header {
 
 .navigation a:hover,
 .navigation a.active {
-    background: #DB7093;
+    background: #6F2C1E;
     color: #FFF8DC;
 }
 
@@ -53,12 +53,13 @@ header {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 #text {
     position: absolute;
     font-size: 5em;
-    color: #DB7093;
+    color: #D19B5D;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,20 +72,29 @@ header {
 }
 
 .sec {
-    position: relative;
-    background: #DB7093;
+    min-height: 100vh;
     padding: 100px;
+    background-color: #6F2C1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sec h2 {
-    font-size: 3em;
-    color: #FFC0CB;
+    font-size: 5em;
+    color: #FFF8DC;
+    margin-bottom: 10px;
+}
+.sec h3 {
+    font-size: 2em;
+    color: #FFF8DC;
     margin-bottom: 10px;
 }
 
 .sec p {
     font-size: 1em;
-    color: #FFC0CB;
+    color: #D19B5D;
     font-weight: 300;
 }
 
@@ -130,22 +140,22 @@ header {
     flex-direction: column;
     margin: 0 auto;
     max-width: 80%;
-    background-color: #FFC0CB; 
+    background-color: #6F2C1E; 
     border-radius: 12px;
     padding: 30px;
     margin-top: 2em;
-    border: 2px solid #FFC0CB; 
+    border: 2px solid #6F2C1E; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .quiz-section h2 {
     font-size: 2.5em;
-    color: #FFC0CB;
+    color: #FFF8DC;
     margin-bottom: 20px;
     text-align: center;
 }
 #question {
     font-size: 1.8em;
-    color: #FFC0CB; 
+    color: #FFF8DC; 
     margin-bottom: 20px;
     text-align: center;
 }
@@ -170,7 +180,7 @@ header {
 
 .quiz-container h2 {
     font-size: 2.5em;
-    color: #FFC0CB;
+    color: #FFF8DC;
     margin-bottom: 20px;
 }
 
@@ -181,8 +191,8 @@ header {
 }
 
 .answer {
-    background: #DB7093;
-    color: #FFC0CB;
+    background: #D19B5D  ;
+    color: #ffe0c0;
     padding: 15px 30px;
     border-radius: 10px;
     font-size: 1.2em;
@@ -193,7 +203,7 @@ header {
 
 .answer:hover {
     transform: translateY(-5px);
-    background-color: beige;
+    background-color: #c87832 ;
 }
 
 .fade-in {
@@ -217,7 +227,7 @@ header {
 }
 
 .answer-button {
-    background-color: #DB7093;
+    background-color: #D19B5D;
     color: #FFF; 
     padding: 15px 25px;
     border-radius: 8px;
@@ -229,26 +239,142 @@ header {
     width: auto; 
 }
 
-
+.answ{
+    display: flex;
+}
 .answer-button:hover {
     transform: translateY(-3px);
-    background-color: #FFF8DC; 
-    color: #DB7093; 
+    background-color: #c9873b; 
+    color: #ecdfd7; 
 
-
+}
 .recommendation-card {
-    background-color: #FFC0CB;
-    color: #DB7093;
-    padding: 15px 20px;
+    background-color: #D19B5D;
+    color: #D19B5D;
+    padding: 1vw 1.4vw;
     border-radius: 10px;
-    border: 1px solid #DB7093;
+    border: 1px solid #D19B5D;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 1.3em;
     text-align: center;
-    width: 80%;
-    max-width: 400px;
-    margin-bottom: 15px;
+    width: 35vw;
+    max-width: 3000px;
+    margin: 1vw;
     animation: fadeInUp 0.5s ease forwards;
+}
+.img_anime {
+    width: 400px; 
+    height: 400px; 
+    border-radius: 10px; 
+    opacity: 1; 
+}
+.img_anime_test {
+    width: 15vw; 
+    height: 20vw; 
+    border-radius: 10px; 
+    opacity: 1; 
+}
+.image-animation {
+    display: flex;
+    justify-content: space-around; /* piltid keskel */
+    align-items: center;
+    
+    gap: 50px;
+    padding-top: 30px;
+    position: relative;
+    top: -50px
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+}
+
+.image-item img {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    border-radius: 15px; /* ümmardume nurgad */
+    transition: transform 1s ease, opacity 0.5s ease;
+    opacity: 0; /* enne ei näeme*/
+}
+
+.image-item img.left {
+    transform: translateX(-200%); /*pilt vasakul */
+}
+
+.image-item img.right {
+    transform: translateX(200%); /* pilt paremal */
+}
+
+.image-item img.visible {
+    opacity: 1;
+    transform: translateX(0); /* liiguvad keskel */
+}
+.h3 {
+    margin-top: 10px;
+    font-size: 2em; 
+    color: #FFF8DC;
+    text-align: center;
+}
+.image-text {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #D19B5D;
+    text-align: center;
+}
+
+.music-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color:#6F2C1E ; 
+    margin-top: 50px;
+    border-top: 3px solid #6F2C1E;
+}
+
+.music-content p {
+    font-size: 1.8em;
+    color:#FFF8DC  ;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.spotify-link {
+    display: inline-block;
+    background-color: #6F2C1E; 
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.spotify-link:hover {
+    background-color: #D19B5D ;
+    transform: translateY(-3px);
+}
+
+.spotify-gif {
+    max-width: 200px; 
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    background-color: #6F2C1E;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 3px solid #D19B5D;
+}
+
+.footer-text {
+    font-size: 2em;
+    color: #FFF8DC;
+    font-weight: 700;
 }
 
 @keyframes fadeInUp 

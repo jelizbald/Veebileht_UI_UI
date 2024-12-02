@@ -16,6 +16,7 @@ window.addEventListener('scroll', () => {
 })
 
 
+
 function scrollAnimation() {
     const images = document.querySelectorAll('.scroll-animation');
     
@@ -39,13 +40,13 @@ scrollAnimation();
 let currentQuestionIndex = 0;
 let userFilters = [];
 
-// Вопросы и ответы на эстонском языке
+// küsimused ja vastused
 const questions = [
     {
-        question: "Kas oled poiss või tüdruk?",
+        question: "Kas eelistad mehi või naisi",
         answers: [
-            { text: "Tüdruk", filter: ["male"] },
-            { text: "Poiss", filter: ["female"] }
+            { text: "Mehi", filter: ["male"] },
+            { text: "Naisi", filter: ["female"] }
         ]
     },
     {
@@ -53,52 +54,83 @@ const questions = [
         answers: [
             { text: "Heledad", filter: ["light_hair"] },
             { text: "Tumedad", filter: ["dark_hair"] },
-            { text: "Eredad (roosa, sinine jne)", filter: ["bright_hair"] }
+            { text: "Värvilised (roosa, sinine jne)", filter: ["colorful"] }
         ]
     },
     {
-        question: "Milline isiksusetüüp sulle meeldib?",
+        question: "Mis tüüpi iseloom tõmbab sind kõige rohkem?",
         answers: [
-            { text: "Hooliv ja lahke", filter: ["caring"] },
-            { text: "Külm ja tugev", filter: ["cold"] },
-            { text: "Lõbus ja energiline", filter: ["cheerful"] }
+            { text: "Hooliv ja siiras", filter: ["caring"] },
+            { text: "Salapärane ja vaoshoitud", filter: ["mysterious"] },
+            { text: "Lahe ja enesekindel", filter: ["cool"] },
+            { text: "Kohmakas, aga nunnu", filter: ["clumsy_cute"] },
+            { text: "Karm ja emotsioonitu", filter: ["cold"] },
+            { text: "Tõsine ja kohusetundlik", filter: ["responsible"] },
+            { text: "Rõõmsameelne ja naljakas", filter: ["cheerful"] },
+            { text: "Tujukas ja keeruline", filter: ["moody"] }
         ]
     },
     {
-        question: "Milline oskus või võime sind huvitab?",
+        question: "Millist tüüpi suhe sulle kõige rohkem meeldiks?",
         answers: [
-            { text: "Võitluskunst", filter: ["martial_arts"] },
-            { text: "Maagia", filter: ["magic"] },
-            { text: "Intelligentsus ja strateegia", filter: ["intellectual"] }
+            { text: "Romantiline ja emotsionaalne", filter: ["romantic"] },
+            { text: "Sügav ja kirglik", filter: ["deep"] },
+            { text: "Põnev ja seikluslik", filter: ["adventurous"] },
+            { text: "Toetav ja usaldusväärne", filter: ["supportive"] },
+            { text: "Ebastabiilne ja dramaatiline", filter: ["unstable"] },
+            { text: "Kauge, aga hooliv", filter: ["distant"] }
+
         ]
-    }
+    }, 
+    {
+        question: "Millist tüüpi võimeid või oskusi imetled kõige enam?",
+        answers: [
+            { text: "Võitluskunstid ja füüsiline tugevus", filter: ["martial_arts"] },
+            { text: "Tervendavad ja support võimed", filter: ["healing"] },
+            { text: "Sotsiaalne mõju ja karisma", filter: ["charisma"] },
+            { text: "Ellujäämisoskused ja praktiline nutikus", filter: ["survival"] },
+            { text: "Maagia ja müstilised jõud", filter: ["magic"] },
+            { text: "Tehnoloogia ja mehaanilised oskused", filter: ["technology"] },
+            { text: "Intelligentsus ja strateegiline mõtlemine", filter: ["intellectual"] },
+        ]
+    }   
 ];
 
-// Персонажи и их фильтры (результаты на английском)
+// teadlased ja filtrid
 const animeHusbands = [
-    { name: "Zoro", anime: "One Piece", filters: ["male", "dark_hair", "cold", "martial_arts"], image: "C:\Users\balduhhova\Desktop\veebileht\piltid\zoro.jpg" },
-    { name: "Luffy", anime: "One Piece", filters: ["male", "dark_hair", "cheerful", "martial_arts"], image: "path/to/luffy.jpg" },
-    { name: "Nami", anime: "One Piece", filters: ["female", "bright_hair", "cheerful", "intellectual"], image: "path/to/nami.jpg" },
-    { name: "Robin", anime: "One Piece", filters: ["female", "dark_hair", "cold", "intellectual"], image: "path/to/robin.jpg" },
-    { name: "Gojo Satoru", anime: "Jujutsu Kaisen", filters: ["male", "light_hair", "cheerful", "magic"], image: "path/to/gojo.jpg" },
-    { name: "Mahito", anime: "Jujutsu Kaisen", filters: ["male", "bright_hair", "cold", "magic"], image: "path/to/mahito.jpg" },
-    { name: "Nobara", anime: "Jujutsu Kaisen", filters: ["female", "dark_hair", "cheerful", "martial_arts"], image: "path/to/nobara.jpg" },
-    { name: "Maki", anime: "Jujutsu Kaisen", filters: ["female", "dark_hair", "cold", "martial_arts"], image: "path/to/maki.jpg" },
-    { name: "Yoruichi", anime: "Bleach", filters: ["female", "dark_hair", "cheerful", "martial_arts"], image: "path/to/yoruichi.jpg" },
-    { name: "Byakuya", anime: "Bleach", filters: ["male", "dark_hair", "cold", "martial_arts"], image: "path/to/byakuya.jpg" },
-    { name: "Kenpachi", anime: "Bleach", filters: ["male", "dark_hair", "cold", "martial_arts"], image: "path/to/kenpachi.jpg" },
-    { name: "Ukitake", anime: "Bleach", filters: ["male", "light_hair", "caring", "intellectual"], image: "path/to/ukitake.jpg" },
-    { name: "Orihime", anime: "Bleach", filters: ["female", "bright_hair", "caring", "magic"], image: "path/to/orihime.jpg" },
-    { name: "Rukia", anime: "Bleach", filters: ["female", "dark_hair", "cold", "martial_arts"], image: "path/to/rukia.jpg" },
-    { name: "Kisuke", anime: "Bleach", filters: ["male", "light_hair", "cheerful", "intellectual"], image: "path/to/kisuke.jpg" }
+    { name: "Zoro", anime: "One Piece", filters: ["male", "colorful", "cool","distant","martial_arts"], image: "piltid/ZOROOOOOYAY.jpg" },
+    { name: "Luffy", anime: "One Piece", filters: ["male", "dark_hair", "cheerful", "adventurous","martial_arts"], image: "piltid/luffy.jpg" },
+    { name: "Franky", anime: "One Piece", filters: ["male", "colorful", "cheerful", "adventurous","technology"], image: "piltid/franky.jpg" },
+    { name: "Sanji", anime: "One Piece", filters: ["male", "light_hair", "caring", "deep","survival"], image: "piltid/sanji.jpg" },
+
+    { name: "Boa", anime: "One Piece", filters: ["female", "dark_hair", "moody", "romantic","charisma"], image: "piltid/boa.jpg" },
+    { name: "Nami", anime: "One Piece", filters: ["female", "light_hair", "moody","adventurous", "survival"], image: "piltid/nami.jpg" },
+    { name: "Robin", anime: "One Piece", filters: ["female", "dark_hair", "mysterious","supportive", "intellectual"], image: "piltid/robin.jpg" },
+
+    { name: "Gojo Satoru", anime: "Jujutsu Kaisen", filters: ["male", "light_hair", "cool","romantic", "magic"], image: "piltid/gojo.jpg" },
+    { name: "Nanami Kento", anime: "Jujutsu Kaisen", filters: ["male", "light_hair", "responsible","supportive", "magic"], image: "piltid/nanami.jpg" },
+    { name: "Toji Fushiguro", anime: "Jujutsu Kaisen", filters: ["male", "dark_hair", "cold","unstable", "martial_arts"], image: "piltid/toji.jpg" },
+    { name: "Yuji Itadori", anime: "Jujutsu Kaisen", filters: ["male", "colorful", "caring","adventurous", "martial_arts"], image: "piltid/Yuji.jpg" },
+
+    { name: "Nobara", anime: "Jujutsu Kaisen", filters: ["female", "light_hair", "cool","romantic", "magic"], image: "piltid/nobara.jpg" },
+    { name: "Maki", anime: "Jujutsu Kaisen", filters: ["female", "colorful", "cold","supportive", "martial_arts"], image: "piltid/maki.jpg" },
+    { name: "MeiMei", anime: "Jujutsu Kaisen", filters: ["female", "light_hair", "mysterious","unstable", "charisma"], image: "piltid/meimei.jpg" },
+
+    { name: "Yoruichi", anime: "Bleach", filters: ["female", "colorful", "cool", "adventurous","martial_arts"], image: "piltid/yoruichi.jpg" },
+    { name: "Byakuya", anime: "Bleach", filters: ["male", "dark_hair", "cold","distant", "martial_arts"], image: "piltid/byakuya.jpg" },
+    { name: "Kenpachi", anime: "Bleach", filters: ["male", "dark_hair", "cold","unstable", "martial_arts"], image: "piltid/kempachi.jpg" },
+    { name: "Ukitake", anime: "Bleach", filters: ["male", "light_hair", "caring", "supportive","intellectual"], image: "piltid/ukitake.jpg" },
+    { name: "Orihime", anime: "Bleach", filters: ["female", "colorful", "caring","romantic", "magic"], image: "piltid/orihime.jpg" },
+    { name: "Rukia", anime: "Bleach", filters: ["female", "dark_hair", "cold", "deep", "martial_arts"], image: "piltid/rukia.jpg" },
+    { name: "Kisuke", anime: "Bleach", filters: ["male", "light_hair", "cheerful", "adventurous", "intellectual"], image: "piltid/kusuke.jpg" }
 ];
 
-// Функция для показа текущего вопроса
+// funtsioon mis näitas küsimus
 function showQuestion() {
     const questionElement = document.getElementById("question");
     const answersElement = document.getElementById("answers");
 
-    // Показываем текущий вопрос и ответы
+    // küsimus ja vastus 
     questionElement.innerText = questions[currentQuestionIndex].question;
     answersElement.innerHTML = "";
 
@@ -111,9 +143,9 @@ function showQuestion() {
     });
 }
 
-// Обработка ответа
+// töö vastusega
 function handleAnswer(filter) {
-    userFilters.push(...filter);  // Добавляем выбранные фильтры в массив
+    userFilters.push(...filter);  // lisame filtrid massiviis
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions.length) {
@@ -123,11 +155,11 @@ function handleAnswer(filter) {
     }
 }
 
-// Показываем результат — только один персонаж
+// result - ainult üks teadlane
 function showResults() {
     const questionElement = document.getElementById("question");
     const answersElement = document.getElementById("answers");
-    questionElement.innerText = "Sinu anime mees:";
+    questionElement.innerText = "Sinu anime abikaasa:";
     answersElement.innerHTML = "";
 
     const filteredAnimeHusbands = animeHusbands.filter(husband =>
@@ -136,14 +168,14 @@ function showResults() {
 
     const result = filteredAnimeHusbands.length > 0 ? filteredAnimeHusbands[0] : getClosestMatch();
 
-    // Создаем карточку с результатом
+    // kaust resultiga
     const resultElement = document.createElement("div");
     resultElement.classList.add("recommendation-card", "fade-in");
     
     const husbandImage = document.createElement("img");
     husbandImage.src = result.image;
     husbandImage.alt = result.name;
-    husbandImage.classList.add("husband-image");
+    husbandImage.classList.add("husband-image", "img_anime");
     
     const husbandTitle = document.createElement("h3");
     husbandTitle.innerText = result.name;
@@ -157,7 +189,7 @@ function showResults() {
     answersElement.appendChild(resultElement);
 }
 
-// Получение ближайшего совпадения, если точного нет
+// kui ei ole täpsemalt vastust, vaatame sarnast
 function getClosestMatch() {
     const similarityScores = animeHusbands.map(husband => ({
         ...husband,
@@ -168,5 +200,6 @@ function getClosestMatch() {
     return similarityScores[0];
 }
 
-// Запуск теста
+
 showQuestion();
+
