@@ -61,8 +61,16 @@ const questions = [
     {
         question: "Mis žanri animed sulle meeldivad?",
         answers: [
-            { text: "Seinen", filter: ["seinen"] },
-            { text: "Shoujo", filter: ["shoujo"] },
+            { text: "Seinen: Täiskasvanutele/Tõsisemad teemad", filter: ["seinen"] },
+            { text: "Shoujo: Romantilised ja emotsionaalsed", filter: ["shoujo"] },
+            { text: "Shounen: Tegevus-ja seikluslood", filter: ["shounen"] },
+            { text: "Horror", filter: ["horror"] },
+            { text: "Mystery", filter: ["mystery"] },
+            { text: "Ulme", filter: ["ulme"] },
+            { text: "Komöödia", filter: ["comedy"] },
+            { text: "Sport", filter: ["sports"] },
+            { text: "Mecha", filter: ["mecha"] },
+            { text: "Isekai", filter: ["isekai"] },
             { text: "Slice of Life", filter: ["slice_of_life"] }
         ]
     },
@@ -75,11 +83,16 @@ const questions = [
         ]
     },
     {
-        question: "Millised omadused kirjeldavad su lemmiktegelasu kõige paremini?",
+        question: "Millised omadused kirjeldavad su lemmiktegelasi kõige paremini?",
         answers: [
-            { text: "Sünge", filter: ["dark"] },
-            { text: "Optimistlik", filter: ["light"] },
-            { text: "Apaatne, emotsionaalselt reserveeritud", filter: ["neutral"] }
+            { text: "Hooliv ja siiras", filter: ["caring"] },
+            { text: "Salapärane ja vaoshoitud", filter: ["mysterious"] },
+            { text: "Lahe ja enesekindel", filter: ["cool"] },
+            { text: "Kohmakas, aga nunnu", filter: ["clumsy_cute"] },
+            { text: "Karm ja emotsioonitu", filter: ["cold"] },
+            { text: "Tõsine ja kohusetundlik", filter: ["responsible"] },
+            { text: "Rõõmsameelne ja naljakas", filter: ["cheerful"] },
+            { text: "Tujukas ja keeruline", filter: ["moody"] },
         ]
     },
     {
@@ -102,13 +115,27 @@ const questions = [
 
 // База данных аниме с фильтрами
 const animeRecommendations = [
-    { title: "Rainbow", filters: ["seinen", "dark", "complex", "no_romance"] },
-    { title: "March Comes in Like a Lion", filters: ["seinen", "light", "medium_complex", "romance"] },
-    { title: "Paradise Kiss", filters: ["shoujo", "romance", "bright_animation"] },
+    { title: "Rainbow", filters: ["seinen", "moody", "complex", "no_romance"] },
+    { title: "Another", filters: ["horror", "mysterious", "medium_complex", "no_romance"] },
+    { title: "Akame ga kill", filters: ["shounen", "responsible", "medium_complex", "no_romance"] },
+
+    { title: "Frieren", filters: ["seinen", "mysterious", "complex", "no_romance"] },
+    { title: "Apothecary Diaries", filters: ["mystery", "cool", "medium_complex", "no_romance"] },
+    { title: "Heavenly delusion", filters: ["ulme", "caring", "complex", "no_romance"] },
+
+    { title: "Mashle", filters: ["comedy", "clumsy_cute", "simple", "no_romance"] },
+    { title: "Free!", filters: ["sport", "caring", "simple", "no_romance"] },
+    
+    { title: "Gurren Lagann!", filters: ["mecha", "cheerful", "medium_complex", "no_romance"] },
+    { title: "The Rising of the Shield Hero", filters: ["isekai", "responsible", "medium_complex", "no_romance"] },
+
+
+    { title: "March Comes in Like a Lion", filters: ["seinen", "moody", "medium_complex", "romance"] },
+    { title: "Paradise Kiss", filters: ["shoujo", "romance","medium_complex", "bright_animation"] },
     { title: "House of Five Leaves", filters: ["seinen", "neutral", "simple", "no_romance"] },
-    { title: "Silver Spoon", filters: ["slice_of_life", "neutral", "light_romance"] },
-    { title: "Honey and Clover", filters: ["slice_of_life", "light", "romance"] },
-    { title: "Bartender", filters: ["slice_of_life", "neutral", "no_romance"] }
+    { title: "Silver Spoon", filters: ["slice_of_life", "neutral", "simple", "light_romance"] },
+    { title: "Honey and Clover", filters: ["slice_of_life", "light", "medium_complex","romance"] },
+    { title: "Bartender", filters: ["slice_of_life", "neutral","simple", "no_romance"] }
 ];
 
 // Функция для отображения текущего вопроса
