@@ -16,6 +16,7 @@ window.addEventListener('scroll', () => {
 })
 
 
+
 function scrollAnimation() {
     const images = document.querySelectorAll('.scroll-animation');
     
@@ -115,13 +116,13 @@ const animeHusbands = [
     { name: "Maki", anime: "Jujutsu Kaisen", filters: ["female", "colorful", "cold","supportive", "martial_arts"], image: "piltid/maki.jpg" },
     { name: "MeiMei", anime: "Jujutsu Kaisen", filters: ["female", "light_hair", "mysterious","unstable", "charisma"], image: "piltid/meimei.jpg" },
 
-    { name: "Yoruichi", anime: "Bleach", filters: ["female", "colorful", "cool", "adventurous","martial_arts"], image: "path/to/yoruichi.jpg" },
-    { name: "Byakuya", anime: "Bleach", filters: ["male", "dark_hair", "cold","distant", "martial_arts"], image: "path/to/byakuya.jpg" },
-    { name: "Kenpachi", anime: "Bleach", filters: ["male", "dark_hair", "cold","unstable", "martial_arts"], image: "path/to/kenpachi.jpg" },
-    { name: "Ukitake", anime: "Bleach", filters: ["male", "light_hair", "caring", "supportive","intellectual"], image: "path/to/ukitake.jpg" },
-    { name: "Orihime", anime: "Bleach", filters: ["female", "colorful", "caring","romantic", "magic"], image: "path/to/orihime.jpg" },
-    { name: "Rukia", anime: "Bleach", filters: ["female", "dark_hair", "cold", "deep", "martial_arts"], image: "path/to/rukia.jpg" },
-    { name: "Kisuke", anime: "Bleach", filters: ["male", "light_hair", "cheerful", "adventurous", "intellectual"], image: "path/to/kisuke.jpg" }
+    { name: "Yoruichi", anime: "Bleach", filters: ["female", "colorful", "cool", "adventurous","martial_arts"], image: "piltid/yoruichi.jpg" },
+    { name: "Byakuya", anime: "Bleach", filters: ["male", "dark_hair", "cold","distant", "martial_arts"], image: "piltid/byakuya.jpg" },
+    { name: "Kenpachi", anime: "Bleach", filters: ["male", "dark_hair", "cold","unstable", "martial_arts"], image: "piltid/kempachi.jpg" },
+    { name: "Ukitake", anime: "Bleach", filters: ["male", "light_hair", "caring", "supportive","intellectual"], image: "piltid/ukitake.jpg" },
+    { name: "Orihime", anime: "Bleach", filters: ["female", "colorful", "caring","romantic", "magic"], image: "piltid/orihime.jpg" },
+    { name: "Rukia", anime: "Bleach", filters: ["female", "dark_hair", "cold", "deep", "martial_arts"], image: "piltid/rukia.jpg" },
+    { name: "Kisuke", anime: "Bleach", filters: ["male", "light_hair", "cheerful", "adventurous", "intellectual"], image: "piltid/kusuke.jpg" }
 ];
 
 // Функция для показа текущего вопроса
@@ -201,3 +202,4 @@ function getClosestMatch() {
 
 // Запуск теста
 showQuestion();
+
