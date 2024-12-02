@@ -92,7 +92,7 @@ const questions = [
             { text: "Karm ja emotsioonitu", filter: ["cold"] },
             { text: "Tõsine ja kohusetundlik", filter: ["responsible"] },
             { text: "Rõõmsameelne ja naljakas", filter: ["cheerful"] },
-            { text: "Tujukas ja keeruline", filter: ["moody"] },
+            { text: "Tujukas ja keeruline", filter: ["moody"] }
         ]
     },
     {
@@ -104,38 +104,41 @@ const questions = [
         ]
     },
     {
-        question: "Kas teile meeldib värviliste efektidega animatsioon?",
+        question: "Milline animatsioonistiil teile kõige rohkem meeldib?",
         answers: [
-            { text: "Jah, väga!", filter: ["bright_animation"] },
-            { text: "Mõnikord, kui see on asjakohane", filter: ["moderate_animation"] },
-            { text: "Eelistan klassikalist stiili", filter: ["classic_style"] }
+            { text: "Detailne ja realistlik stiil", filter: ["realistic"]},
+            { text: "Fantaasiarikas ja loominguline", filter: ["fantasy"] },
+            { text: "Retro ja nostalgiline", filter: ["retro"] },
+            { text: "Animeeritud minimalistlik stiil", filter: ["minimal"]},
+            { text: "Tumedad ja gootilikud efektid", filter: ["dark_gothic"]}
         ]
     }
 ];
 
 // База данных аниме с фильтрами
 const animeRecommendations = [
-    { title: "Rainbow", filters: ["seinen", "moody", "complex", "no_romance"] },
-    { title: "Another", filters: ["horror", "mysterious", "medium_complex", "no_romance"] },
-    { title: "Akame ga kill", filters: ["shounen", "responsible", "medium_complex", "no_romance"] },
+    { title: "Rainbow", filters: ["seinen", "moody", "complex", "no_romance", "dark_gothic"], image: "piltid/rainbow.jpg"  },
+    { title: "Another", filters: ["horror", "mysterious", "medium_complex", "no_romance", "dark_gothic"], image: "piltid/another.jpg"  },
+    { title: "Akame ga kill", filters: ["shounen", "responsible", "medium_complex", "light_romance", "fantasy"], image: "piltid/akame_ga_kill.jpg"  },
 
-    { title: "Frieren", filters: ["seinen", "mysterious", "complex", "no_romance"] },
-    { title: "Apothecary Diaries", filters: ["mystery", "cool", "medium_complex", "no_romance"] },
-    { title: "Heavenly delusion", filters: ["ulme", "caring", "complex", "no_romance"] },
+    { title: "Frieren", filters: ["seinen", "mysterious", "complex", "light_romance","minimal"], image: "piltid/frieren.jpg"  },
+    { title: "Apothecary Diaries", filters: ["mystery", "cool", "medium_complex", "romance", "realistic"], image: "piltid/apothecary_diaries.jpg"  },
+    { title: "Heavenly delusion", filters: ["ulme", "caring", "complex", "light_romance", "fantasy"], image: "piltid/heavenly_delusion.jpg"  },
+    { title: "Mirai nikki", filters: ["ulme", "caring", "complex", "light_romance", "fantasy"], image: "piltid/mirai_nikki.jpg"  },
 
-    { title: "Mashle", filters: ["comedy", "clumsy_cute", "simple", "no_romance"] },
-    { title: "Free!", filters: ["sport", "caring", "simple", "no_romance"] },
-    
-    { title: "Gurren Lagann!", filters: ["mecha", "cheerful", "medium_complex", "no_romance"] },
-    { title: "The Rising of the Shield Hero", filters: ["isekai", "responsible", "medium_complex", "no_romance"] },
+    { title: "Mashle", filters: ["comedy", "clumsy_cute", "simple", "no_romance", "fantasy"], image: "piltid/mashle.jpg"  },
+    { title: "Free!", filters: ["sport", "caring", "simple", "light_romance", "realistic"], image: "piltid/free.jpg"  },
+
+    { title: "Gurren Lagann!", filters: ["mecha", "cheerful", "simple", "light_romance","retro"], image: "piltid/gurren_lagann.jpg"  },
+    { title: "The Rising of the Shield Hero", filters: ["isekai", "responsible", "medium_complex", "light_romance", "fantasy"], image: "piltid/shield_hero.jpg"  },
 
 
-    { title: "March Comes in Like a Lion", filters: ["seinen", "moody", "medium_complex", "romance"] },
-    { title: "Paradise Kiss", filters: ["shoujo", "romance","medium_complex", "bright_animation"] },
-    { title: "House of Five Leaves", filters: ["seinen", "neutral", "simple", "no_romance"] },
-    { title: "Silver Spoon", filters: ["slice_of_life", "neutral", "simple", "light_romance"] },
-    { title: "Honey and Clover", filters: ["slice_of_life", "light", "medium_complex","romance"] },
-    { title: "Bartender", filters: ["slice_of_life", "neutral","simple", "no_romance"] }
+    { title: "March Comes in Like a Lion", filters: ["seinen", "caring", "medium_complex", "romance", "realistic"], image: "piltid/march_lion.jpg"  },
+    { title: "Paradise Kiss", filters: ["shoujo","mysterious", "romance","medium_complex", "bright_animation", "retro"], image: "piltid/paradise_kiss.jpg"  },
+    { title: "House of Five Leaves", filters: ["seinen", "cold", "simple", "no_romance", "minimal"], image: "piltid/house_leaves.jpg"  },
+    { title: "Silver Spoon", filters: ["slice_of_life", "clumsy_cute", "simple", "light_romance", "realistic"], image: "piltid/silver_spoon.jpg"  },
+    { title: "Honey and Clover", filters: ["slice_of_life", "cheerful", "medium_complex","romance", "realistic"], image: "piltid/honey_clover.jpg"  },
+    { title: "Bartender", filters: ["slice_of_life", "responsible","simple", "no_romance", "minimal"], image: "piltid/bartender.jpg"  }
 ];
 
 // Функция для отображения текущего вопроса
@@ -176,6 +179,8 @@ function showResults() {
     const answersElement = document.getElementById("answers");
     questionElement.innerText = "Teie soovitused:";
     answersElement.innerHTML = "";
+    answersElement.className = "answ"
+    answersElement.id = ""
 
     // Фильтрация аниме-рекомендаций по выбранным фильтрам пользователя
     const filteredAnime = animeRecommendations.filter(anime =>
@@ -186,10 +191,27 @@ function showResults() {
     const results = filteredAnime.length > 0 ? filteredAnime : getClosestMatches();
 
     results.forEach(anime => {
-        const animeElement = document.createElement("p");
-        animeElement.innerText = anime.title;
-        answersElement.appendChild(animeElement);
+        const resultElement = document.createElement("div");
+        resultElement.classList.add("recommendation-card", "fade-in");
+
+        const animeImage = document.createElement("img");
+        animeImage.src = anime.image;
+        animeImage.alt = anime.title;
+        animeImage.classList.add("anime-image", "img_anime_test");
+        
+        const animeTitle = document.createElement("h3");
+        animeTitle.innerText = anime.title;
+        
+        const animeInfo = document.createElement("p");
+        animeInfo.innerText = `Anime:  ${anime.filters.join(", ")}`;
+        
+        resultElement.appendChild(animeImage);
+        resultElement.appendChild(animeTitle);
+        resultElement.appendChild(animeInfo);
+
+        answersElement.appendChild(resultElement);
     });
+
 }
 
 // Функция для получения максимально близких совпадений, если точного совпадения нет

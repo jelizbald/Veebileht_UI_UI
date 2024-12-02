@@ -66,7 +66,7 @@ const questions = [
             { text: "Karm ja emotsioonitu", filter: ["cold"] },
             { text: "Tõsine ja kohusetundlik", filter: ["responsible"] },
             { text: "Rõõmsameelne ja naljakas", filter: ["cheerful"] },
-            { text: "Tujukas ja keeruline", filter: ["moody"] },
+            { text: "Tujukas ja keeruline", filter: ["moody"] }
         ]
     },
     {
